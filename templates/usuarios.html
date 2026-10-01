@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuários</title>
+
+    <link rel="stylesheet" href="{% static 'css/usuarios.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Usuários</h1>
+        <p>Gerencie os usuários da biblioteca.</p>
+    </header>
+
+    <main>
+
+        <div class="menu">
+
+            {% for usuario in usuarios %}
+
+                <div class="card">
+                    <h3>{{ usuario.nome }}</h3>
+                    <p><strong>E-mail:</strong> {{ usuario.email }}</p>
+                    <p><strong>Telefone:</strong> {{ usuario.telefone }}</p>
+                    <p><strong>Cadastro:</strong> {{ usuario.data_cadastrio }}</p>
+                </div>
+
+            {% empty %}
+
+                <p>Nenhum usuário cadastrado ainda.</p>
+
+            {% endfor %}
+
+        </div>
+
+        <div class="voltar-container">
+            <a href="/" class="btn-voltar">Voltar ao menu</a>
+        </div>
+
+    </main>
+</body>
+</html>

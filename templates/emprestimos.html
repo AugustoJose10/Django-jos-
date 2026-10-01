@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empréstimos</title>
+
+    <link rel="stylesheet" href="{% static 'css/emprestimos.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Empréstimos</h1>
+        <p>Gerencie os empréstimos de livros.</p>
+    </header>
+
+    <main>
+
+        <div class="menu">
+
+            {% for emprestimo in emprestimos %}
+
+                <div class="card">
+                    <h3>{{ emprestimo.livro }}</h3>
+                    <p><strong>Usuário:</strong> {{ emprestimo.nome_usuario }}</p>
+                    <p><strong>Empréstimo:</strong> {{ emprestimo.dia_emprestimo }}</p>
+                    <p><strong>Devolução:</strong> {{ emprestimo.dia_devolucao }}</p>
+                </div>
+
+            {% empty %}
+
+                <p>Nenhum empréstimo registrado ainda.</p>
+
+            {% endfor %}
+
+        </div>
+
+        <div class="voltar-container">
+            <a href="/" class="btn-voltar">Voltar ao menu</a>
+        </div>
+
+    </main>
+</body>
+</html>
